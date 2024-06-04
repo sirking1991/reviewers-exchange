@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('questionnaires', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->foreignUuid('reviewer_meterial_id');
+            $table->foreignUuid('chapter_id');
+            $table->boolean('randomize_questions');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

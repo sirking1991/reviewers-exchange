@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('questionnaire_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('reviewer_id');
-            $table->foreignUuid('author_id');
-            $table->foreignUuid('review_material_id');
-            $table->double('price');
-            $table->string('status', 64);
-            $table->softDeletes();
+            $table->foreignUuid('questionnaire_uuid');
+            $table->string('type', 64);
+            $table->text('content');
+            $table->boolean('randomize_possible_answers');
+            $table->text('possible_answers');
+            $table->text('correct_answers');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('questionnaire_items');
     }
 };

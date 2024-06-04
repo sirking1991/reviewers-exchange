@@ -70,7 +70,7 @@ RE consist of two parts. The first one is the web based app that authors use to 
         - id uuid
         - reviewer_uuid foreign-key:users.id
         - purchase_uuid foreign-key:purchases.id
-        - price decimal
+        - amount decimal
         - status varchar(64) defailt:multiple-option App\Enums\PaymentStatus
         - gateway varchar
         - gateway_details text
@@ -85,7 +85,7 @@ RE consist of two parts. The first one is the web based app that authors use to 
         - correct_answers text
         - wrong_answers text
         - graded boolean
-        - result double
+        - score double
 
 
 ## DESIGN DECISIONS

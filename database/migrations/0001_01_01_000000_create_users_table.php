@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('type', 64)->default('reviewer');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
 

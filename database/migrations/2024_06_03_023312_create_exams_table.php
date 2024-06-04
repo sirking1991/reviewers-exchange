@@ -12,7 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('exams', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('reviewer_id');
+            $table->foreignUuid('question_id');
+            $table->foreignUuid('question_item_id');
+            $table->string('status', 64);
+            $table->text('correct_answers');
+            $table->text('wrong_answers');
+            $table->boolean('graded');
+            $table->double('score');        
+            $table->softDeletes();
             $table->timestamps();
         });
     }

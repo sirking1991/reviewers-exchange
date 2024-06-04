@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('review_materials', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->string('description');
+            $table->string('language', 2);
+            $table->string('currency', 3);
+            $table->double('price');
+            $table->string('sibject');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
