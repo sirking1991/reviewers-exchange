@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\API;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
@@ -34,7 +34,7 @@ class AuthTest extends TestCase
      */
     public function it_returns_an_error_if_credentials_are_invalid()
     {
-        $response = $this->postJson('/api/login',[
+        $response = $this->postJson('/api/login', [
             'email' => 'invalid@example.com',
             'password' => 'wrong-password',
         ]);

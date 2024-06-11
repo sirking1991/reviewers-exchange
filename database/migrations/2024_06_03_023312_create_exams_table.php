@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('correct_answers');
             $table->text('wrong_answers');
             $table->boolean('graded');
-            $table->double('score');        
+            $table->double('score');
             $table->softDeletes();
             $table->timestamps();
         });
