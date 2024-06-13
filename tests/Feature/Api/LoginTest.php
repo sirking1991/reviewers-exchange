@@ -6,14 +6,11 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class AuthTest extends TestCase
+class LoginTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @test
-     */
-    public function it_can_login_a_user_via_api()
+    public function test_can_login_a_user_via_api()
     {
         $user = User::factory()->create();
 
@@ -29,10 +26,7 @@ class AuthTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
-    /**
-     * @test
-     */
-    public function it_returns_an_error_if_credentials_are_invalid()
+    public function test_returns_an_error_if_credentials_are_invalid()
     {
         $response = $this->postJson('/api/login', [
             'email' => 'invalid@example.com',
