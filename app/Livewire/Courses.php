@@ -24,11 +24,12 @@ class Courses extends Component
                 <div class="flex items-center mb-4">
                     <input 
                         type="text" 
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                            focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" 
                         placeholder="Search courses..." 
                         wire:model.live.debounce='search'
                     />
-                    <button class="ms-2 bg-white text-black p-2.5 rounded-lg border border-solid border-black shadow-md hover:shadow-lg transition duration-300 ease-in-out">New Course</button>
+                    
                 </div>
             </div>
 
