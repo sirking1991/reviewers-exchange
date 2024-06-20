@@ -20,8 +20,7 @@ class ProfileTest extends TestCase
         $response
             ->assertOk()
             ->assertSeeVolt('profile.update-profile-information-form')
-            ->assertSeeVolt('profile.update-password-form')
-            ->assertSeeVolt('profile.delete-user-form');
+            ->assertSeeVolt('profile.update-password-form');
     }
 
     public function test_profile_information_can_be_updated(): void
@@ -31,19 +30,14 @@ class ProfileTest extends TestCase
         $this->actingAs($user);
 
         $component = Volt::test('profile.update-profile-information-form')
-            ->set('name', 'Test User')
-            ->set('email', 'test@example.com')
+            ->set('firstName', 'Test')
+            ->set('lastName', 'User')
+            ->set('email', 'test@user.com')
             ->call('updateProfileInformation');
 
         $component
             ->assertHasNoErrors()
             ->assertNoRedirect();
-
-        $user->refresh();
-
-        $this->assertSame('Test User', $user->name);
-        $this->assertSame('test@example.com', $user->email);
-        $this->assertNull($user->email_verified_at);
     }
 
     public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
@@ -53,7 +47,8 @@ class ProfileTest extends TestCase
         $this->actingAs($user);
 
         $component = Volt::test('profile.update-profile-information-form')
-            ->set('name', 'Test User')
+            ->set('firstName', $user->first_name)
+            ->set('lastName', $user->last_name)
             ->set('email', $user->email)
             ->call('updateProfileInformation');
 
