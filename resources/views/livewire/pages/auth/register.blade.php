@@ -34,7 +34,9 @@ new #[Layout('layouts.guest')] class extends Component
             'first_name' => $validated['firstName'],
             'last_name' => $validated['lastName'],
             'email' => $validated['email'],
-            'password' => $validated['password'],            
+            'password' => $validated['password'],      
+            // NOTE: by default, anyone who register on the web-app is an author
+            'type' => 'author'      
         ])));
 
         Auth::login($user);
