@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Chapter;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ReviewMaterial>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Page>
  */
-class ReviewMaterialFactory extends Factory
+class PageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +18,9 @@ class ReviewMaterialFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence,
+            'content' => $this->faker->paragraph(),
+            'chapter_id' => Chapter::factory(),
         ];
     }
 }

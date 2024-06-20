@@ -6,7 +6,7 @@ use App\Traits\HasStringId;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Chapter extends Model
+class Course extends Model
 {
     use HasFactory, HasStringId;
 }

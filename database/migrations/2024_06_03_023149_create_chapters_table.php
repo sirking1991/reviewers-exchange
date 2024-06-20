@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title');
-            $table->foreignUuid('reviewer_material_id');
-            $table->text('content');
+            $table->foreignUuId('course_id')
+                ->required()
+                ->references('id')->on('courses')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('title');            
             $table->softDeletes();
             $table->timestamps();
         });
