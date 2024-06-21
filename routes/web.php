@@ -9,7 +9,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::view('courses', 'courses')->name('courses');    
 
-    Route::view('course', 'course')->name('course');        
+    Route::view('course/{course}', 'course')->name('course');        
 
     Route::view('profile', 'profile')->name('profile');
 });

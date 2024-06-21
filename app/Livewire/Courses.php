@@ -23,7 +23,7 @@ class Courses extends Component
             <div class="flex items-center mt-4 mb-4">
                 <div class="row w-100">
                     <div class="col-8">
-                        <button class='btn btn-secondary'><i class="bi bi-plus"></i> Create new course</button>
+                        <button class='btn btn-secondary'><i class="fa-solid fa-plus"></i> Create new course</button>
                     </div>
                     <div class="col-4">
                         <input 
